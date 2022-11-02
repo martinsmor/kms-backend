@@ -23,7 +23,7 @@ class Register extends ResourceController
             'conf' => 'matches[password]',
             'nama' => 'required',
             'role' => 'required',
-            'unit_kerja_kode' => 'required'
+            'unit_kerja' => 'required'
         ];
         if($this->validate($rules)) $this->fail($this->validator->getError());
         $data = [
@@ -31,7 +31,7 @@ class Register extends ResourceController
             'password' => password_hash($this->request->getVar('password'),PASSWORD_BCRYPT),
             'nama' => $this->request->getVar('nama'),
             'role' => $this->request->getVar('role'),
-            'unit_kerja_kode' => $this->request->getVar('unit_kerja_kode')
+            'unit_kerja_kode' => $this->request->getVar('unit_kerja')
         ];
         $model = new UserModel();
         $registered = $model->save($data);
