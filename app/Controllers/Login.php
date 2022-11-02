@@ -37,7 +37,7 @@ class Login extends ResourceController
             "username" => $user['username'],
             "role" => $user['role'],
             "nama" => $user['nama'],
-            "unit_kerja_kode" => $user['unit_kerja_kode']
+            "unit_kerja" => $user['unit_kerja']
         );
 
         $token = JWT::encode($payload, $key, 'HS256');
